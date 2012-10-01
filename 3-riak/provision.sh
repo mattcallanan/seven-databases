@@ -26,6 +26,9 @@ then
   make devrel
   cd ..
   chown -hR vagrant.vagrant riak-1.2.0 
+  sed -e '33 s/127.0.0.1/0.0.0.0/' -i riak-1.2.0/dev/dev1/etc/app.config
+  sed -e '33 s/127.0.0.1/0.0.0.0/' -i riak-1.2.0/dev/dev2/etc/app.config
+  sed -e '33 s/127.0.0.1/0.0.0.0/' -i riak-1.2.0/dev/dev3/etc/app.config
   
   echo "Done!"
 else
