@@ -24,10 +24,6 @@
 <configuration>
   <property>
     <name>hbase.rootdir</name>
-    <value>file:///vagrant/hbase-data</value>
-  </property>
-  <property>
-    <name>hbase.zookeeper.dns.interface</name>
-    <value>0.0.0.0</value>
+    <value>file:///home/vagrant/hbase-data</value>
   </property>
 </configuration>
