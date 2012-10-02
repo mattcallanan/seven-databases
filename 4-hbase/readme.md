@@ -64,6 +64,11 @@ hbase> count 'wiki', INTERVAL => 100000, CACHE => 10000
 
 ## Day 3
 
+There were a couple of outdated instructions in this section. I've incorporated these fixes in the commands below:
+
+* hbase-daemon.sh needs a -threadpool argument
+* Ruby needs RUBYOPT=rubygems environment variable (or "import 'rubygems" in your .rb file)
+
 ```
 $ hbase-daemon.sh start thrift -threadpool -b 127.0.0.1 
 $ jps
@@ -79,7 +84,7 @@ $ thrift --gen rb ${HBASE_HOME}/src/main/resources/org/apache/hadoop/hbase/thrif
 
 $ RUBYOPT="rubygems" ruby /vagrant_data/thrift_example.rb 
 $ wget http://mirror.mel.bkb.net.au/pub/apache/whirr/stable/whirr-0.8.0.tar.gz
-$ bin/whirr version Apache Whirr 0.6.0-incubating 
+$ whirr version
 $ mkdir keys 
 $ ssh-keygen -t rsa -P '' -f keys/id_rsa
 
