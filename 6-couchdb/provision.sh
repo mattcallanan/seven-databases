@@ -8,6 +8,11 @@ then
   echo "Installing CouchDB"
   apt-get -y update
   apt-get -y install couchdb
+
+  sed -e 's/;bind_address = 127.0.0.1/bind_address = 0.0.0.0/' -i /etc/couchdb/local.ini
+  /etc/init.d/couchdb restart
+
+  # Install other dependencies
   apt-get -y install curl
 
   # Install Ruby
@@ -27,10 +32,7 @@ then
   apt-get update
   apt-get install -y nodejs npm
   
-  sed -e 's/;bind_address = 127.0.0.1/bind_address = 0.0.0.0/' -i /etc/couchdb/local.ini
-  /etc/init.d/couchdb restart
   echo "Done!"
 else
   echo "CouchDB appears to be setup already!"
 fi
-
