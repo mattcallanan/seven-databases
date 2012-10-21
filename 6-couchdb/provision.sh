@@ -1,8 +1,8 @@
 #! /bin/bash
 
+export PS4="[provision.sh] "
 set -ex
 
-export PS4="[provision.sh] "
 if [ ! -f /usr/bin/couchdb ]
 then
   echo "Installing CouchDB"
@@ -12,7 +12,6 @@ then
 
   # Install Ruby
   apt-get install -y make
-  apt-get install -y imagemagick
   apt-get install -y git
   apt-get install -y libxml2
   apt-get install -y libxml2-dev
@@ -32,6 +31,6 @@ then
   /etc/init.d/couchdb restart
   echo "Done!"
 else
-  echo "Couch:wqDB appears to be setup already!"
+  echo "CouchDB appears to be setup already!"
 fi
 
